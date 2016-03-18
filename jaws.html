@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<audio id="jaws" src="jaws.mp4">Ready</audio>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io();
+		var audio = document.getElementById("jaws");
+    socket.on("play", function () {
+			audio.play();
+			audio.innerHTML = "playing";
+		});
+		socket.on("pause", function () {
+			audio.pause();
+			audio.innerHTML = "paused";
+		});
+	</script>
+	</body>
+</html>
